@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_221519) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_22_223755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_221519) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "entities_id"
+    t.index ["entities_id"], name: "index_departments_on_entities_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -26,6 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_221519) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.bigint "user_id"
+    t.index ["department_id"], name: "index_documents_on_department_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "entities", force: :cascade do |t|
@@ -33,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_221519) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,8 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_221519) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_users_on_department_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "departments", "entities", column: "entities_id"
+  add_foreign_key "documents", "departments"
+  add_foreign_key "documents", "users"
+  add_foreign_key "users", "departments"
 end
