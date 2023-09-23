@@ -47,11 +47,11 @@ class EntityController < ApplicationController
             render json: { message: 'The new name is too short!' }
          end   
       when 'description'
-         entity.update(name: data)
+         entity.update(description: data)
          render json: { message: 'description updated successfully!' }
       when 'location'
          if data
-           entity.update(name: data)
+           entity.update(location: data)
            render json: { message: 'location updated successfully!' }
          else
             render json: { message: 'Please! Provide a new location' }
