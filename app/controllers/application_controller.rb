@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
   
     protected
-  
-    "first_name"
-    t.string "last_name"
-    t.string "picture"
-    t.string "permissions"
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up,
