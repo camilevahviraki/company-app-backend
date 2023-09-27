@@ -1,24 +1,39 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ # Company management
 
-Things you may want to cover:
+> Welcome to the Company management.
 
-* Ruby version
 
-* System dependencies
+## Built With
 
-* Configuration
+- Rails
+- Cloudinary
+- Devise
 
-* Database creation
+## Live link
 
-* Database initialization
+... coming soon
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Author**
 
-* Deployment instructions
+- GitHub: [@camilevahviraki](https://github.com/camilevahviraki)    
+- Twitter: [@camilevahviraki](https://twitter.com/CamileVahviraki)
+- LinkedIn: [camilevahviraki](https://www.linkedin.com/in/camile-vahviraki-8180a6232/)
 
-* ...
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Camilux
+- etc
