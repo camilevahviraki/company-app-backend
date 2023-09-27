@@ -1,19 +1,20 @@
 class EntityController < ApplicationController
    def index
-      render json: Entity.all
+      render json: Entity.all, each_serializer: EntitySerializer
    end
    
    def show
       entity = Entity.find(params[:id])
-      render json: entity
+      render json: entity, serializer: SingleEntitySerializer
    end
    
    def create
       name = params[:name]
-      location = params[:location]
+      location = params[:location].to_json
       description = params[:description]
+      country = params[:country]
 
-      entity = Entity.new(name:, location:, description:)
+      entity = Entity.new(name:, location:, description:, country:)
 
       if entity.save
          render json: { message: 'entity created successfully!' }
@@ -59,5 +60,20 @@ class EntityController < ApplicationController
       else
          render json: { message: 'Error, Check your params data!' }
       end
-   end 
+   end
+
+   def search
+      query = params[:query]
+
+      data = if query == ''
+         Entity.all
+      else
+         Entity.where(
+           'lower(name) LIKE :search OR lower(location) LIKE :search OR lower(description) LIKE :search ',
+           search: "%#{query.downcase}%"
+         )
+      end
+      render json: data, each_serializer: EntitySerializer
+   end
+    
 end    
