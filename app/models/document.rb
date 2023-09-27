@@ -4,9 +4,10 @@ class Document < ApplicationRecord
 
     has_one_attached :data_url
 
-    def data
+    def doc_url
         return unless data_url.attached?
     
         data_url.attachment.url
     end
+
 end    

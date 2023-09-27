@@ -16,5 +16,22 @@ class User < ApplicationRecord
 
     picture.attachment.url
   end
-         
+
+  def entity
+    departmente = Department.find(department_id)
+    Entity.find(departmente.entities_id)
+ end
+
+ def department
+  Department.find(department_id)
+  end
+
+  def permission
+    if permissions
+      JSON.parse(permissions)
+    else
+      []
+    end    
+  end
+
 end
