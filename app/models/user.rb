@@ -20,10 +20,10 @@ class User < ApplicationRecord
   def entity
     departmente = Department.find(department_id)
     Entity.find(departmente.entities_id)
- end
+  end
 
- def department
-  Department.find(department_id)
+  def department
+    Department.find(department_id)
   end
 
   def permission
@@ -31,7 +31,6 @@ class User < ApplicationRecord
       JSON.parse(permissions)
     else
       []
-    end    
+    end
   end
-
 end
