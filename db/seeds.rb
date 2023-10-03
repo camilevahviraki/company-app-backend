@@ -17,6 +17,6 @@ unless User.find_by(email: 'admin@gmail.com')
       admin: 'yes',
        email: 'admin@gmail.com', 
        department_id: department.id,
-       password: 'root' 
+       password: 'admin-password' 
     )
 end
