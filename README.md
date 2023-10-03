@@ -16,12 +16,12 @@
   
 - Clone this App
 - Make sure you have Installed Ruby and Ruby on rails
-- get in the root of this directory with  'cd company-app-backend'
-- run 'bundle install'
-- run 'rails db:create' or 'rails db:reset'
-- run 'rails db:migrate'
-- 'rails db:seed'
-- 'rails s' to start the server
+- get in the root of this directory with  `cd company-app-backend`
+- run `bundle install`
+- run `rails db:create` or `rails db:reset`
+- run `rails db:migrate`
+- `rails db:seed`
+- `rails s` to start the server
 
 ### Frontend repositry
 
